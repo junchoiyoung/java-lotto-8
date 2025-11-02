@@ -2,6 +2,7 @@ package lotto.cotroller;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import lotto.domain.LottoManager;
 import lotto.validate.Validate;
 import lotto.view.InputView;
 
@@ -15,10 +16,12 @@ public class LottoController {
 
     public void start() {
         inputView.printBuyLottoPrice();
-        int price = Validate.lottoPrice(Console.readLine());
+        int price = inputView.inputPrice();
         inputView.printWinnerNumber();
-        List<Integer> winNum = Validate.winnerNumber(Console.readLine());
+        List<Integer> winNum = inputView.inputWinnerNumber();
         inputView.printBonusNumber();
-        int bonusNumber = Validate.bonusNumber(Console.readLine());
+        int bonusNum = inputView.inputBonusNumber();
+
+        LottoManager lottoManager = new LottoManager(price, winNum, bonusNum);
     }
 }
