@@ -21,22 +21,37 @@ public class LottoController {
     }
 
     public void start() {
-        inputView.printBuyLottoPrice();
-        int price = inputView.inputPrice();
-        inputView.printWinnerNumber();
-        List<Integer> winNum = inputView.inputWinnerNumber();
-        inputView.printBonusNumber();
-        int bonusNum = inputView.inputBonusNumber();
+        int price = readPrice();
+        List<Integer> winNum = readWinnerNumber();
+        int bonusNum = readBonusNumber();
 
-        LottoMaker lottoMaker = new LottoMaker();
-        LottoMatchChecker lottoMatchChecker = new LottoMatchChecker();
-        LottoManager lottoManager = new LottoManager(lottoMaker, lottoMatchChecker);
-
+        LottoManager lottoManager = createLottoManager();
         List<Lotto> lottos = lottoManager.getLottos(price);
         Map<Grade, Integer> result = lottoManager.getResult(lottos, winNum, bonusNum);
 
         outputView.printLotto(lottos);
         outputView.printResult(result);
         outputView.printPrizeRatio(result, price);
+    }
+
+    private int readPrice() {
+        inputView.printPriceMessage();
+        return inputView.inputPrice();
+    }
+
+    private List<Integer> readWinnerNumber() {
+        inputView.printWinnerNumberMessage();
+        return inputView.inputWinnerNumber();
+    }
+
+    private int readBonusNumber() {
+        inputView.printBonusNumberMessage();
+        return inputView.inputBonusNumber();
+    }
+
+    private LottoManager createLottoManager() {
+        LottoMaker lottoMaker = new LottoMaker();
+        LottoMatchChecker lottoMatchChecker = new LottoMatchChecker();
+        return new LottoManager(lottoMaker, lottoMatchChecker);
     }
 }
