@@ -1,8 +1,8 @@
 package lotto.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import lotto.Lotto;
 
 public class LottoMaker {
@@ -12,12 +12,10 @@ public class LottoMaker {
     private final static int LOTTO_PRICE = 1000;
 
     public List<Lotto> makeLotto(int price) {
-        List<Lotto> lottos = new ArrayList<>();
         int lottoCount = dividePrice(price);
-        for (int i = 0; i < lottoCount; i++) {
-            lottos.add(new Lotto(makeLottoNum()));
-        }
-        return lottos;
+        return IntStream.range(0, lottoCount)
+                .mapToObj(i -> new Lotto(makeLottoNum()))
+                .toList();
     }
 
     private static List<Integer> makeLottoNum() {
