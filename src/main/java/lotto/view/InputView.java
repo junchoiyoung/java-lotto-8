@@ -9,15 +9,15 @@ public class InputView {
     private final static String INPUT_WINNER_NUMBER_MESSAGE = "당첨 번호를 입력해 주세요.";
     private final static String INPUT_BONUS_NUMBER_MESSAGE = "보너스 번호를 입력해 주세요.";
 
-    public void printBuyLottoPrice() {
+    public void printPriceMessage() {
         System.out.println(HOW_MUCH_BUY_MESSAGE);
     }
 
-    public void printWinnerNumber() {
+    public void printWinnerNumberMessage() {
         System.out.println(INPUT_WINNER_NUMBER_MESSAGE);
     }
 
-    public void printBonusNumber() {
+    public void printBonusNumberMessage() {
         System.out.println(INPUT_BONUS_NUMBER_MESSAGE);
     }
 
