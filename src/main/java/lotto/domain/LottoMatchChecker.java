@@ -10,7 +10,9 @@ import lotto.Lotto;
 public class LottoMatchChecker {
     private Map<Grade, Integer> gradeCount;
 
-    public LottoMatchChecker(List<Lotto> lottos, List<Integer> winNumber, int bonusNum) {
+    public LottoMatchChecker() {}
+
+    public void calculate(List<Lotto> lottos, List<Integer> winNumber, int bonusNum) {
         makeGradeCount();
 
         lottos.forEach(lotto -> {
