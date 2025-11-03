@@ -2,7 +2,7 @@ package lotto.domain;
 
 import java.util.Map;
 
-public class Calculation {
+public class Calculator {
     public static double sum(Map<Grade, Integer> result) {
         return result.entrySet().stream()
                 .filter(grade -> grade.getValue() > 0)
