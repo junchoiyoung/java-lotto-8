@@ -11,6 +11,6 @@ public class Calculation {
     }
 
     public static double rate(Double sum, int prize) {
-        return sum / prize;
+        return sum / prize * 100;
     }
 }
