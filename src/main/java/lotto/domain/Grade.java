@@ -24,6 +24,10 @@ public enum Grade {
         return prize;
     }
 
+    public int getMatchCount() {
+        return matchCount;
+    }
+
     public static Grade findGrade(int matchCount, boolean matchBonus) {
         return Arrays.stream(Grade.values())
                 .filter(value -> value.matchCount == matchCount)
